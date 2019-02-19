@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/",
+            "hank\\": "hankFramework/",
+            "actionHandel\\": "actionHandel/",
+            "middleware\\": "middleware/"
+        }
+    },
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "catfan/medoo": "~1.6",
+        "predis/predis": "1.1.*"
+    }
+}
