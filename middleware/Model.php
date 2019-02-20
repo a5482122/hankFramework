@@ -71,6 +71,34 @@ abstract class Model
                 break;
         }
     }
+    /**
+     * 单条行锁语句  必须有主键id
+     * @param $where
+     * @return array|mixed
+     */
+    public function lockOne($where)
+    {
+        $where['ORDER'] = 'id" for update#';
+        return $this->DB()->get(static::$table, "*", $where);
+    }
+
+    //开启事物
+    public function beginTransaction()
+    {
+        $this->DB()->pdo->beginTransaction();
+    }
+
+    //提交事物
+    public function commit()
+    {
+        return $this->DB()->pdo->commit();
+    }
+
+    //回滚事物
+    public function rollBack()
+    {
+        $this->DB()->pdo->rollBack();
+    }
 
     public function __destruct()
     {
